@@ -27,4 +27,13 @@ def stylish_message(info):
 user_info = ["Name","Profession","Passion","Fav Emoji", "Website"]
 
 user_data = user_input(user_info)
-print(stylish_message(user_data))
+bio = stylish_message(user_data)
+
+save = input("Do you want to save this in text file y/n ?").lower()
+
+if save == 'y':
+    filename = f"{user_data["Name"].lower().replace(' ','_')}_bio.txt"
+
+    with open(filename,'w', encoding="utf-8") as f:
+        f.write(bio)
+    print("file saved")
